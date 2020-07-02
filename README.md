@@ -1,48 +1,88 @@
-# 03 JavaScript: Password Generator
+# PROJECT JavaScript: Password Generator
 
-Create an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This project was a task that formed part of my learning process for full stack development. The task required me to design a password generator solution that requires the user to input certain parameters that meet corporate policies. This solution involves about 90% JavaScript, 5% HTML and 5% CSS.
 
-If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
+## Specific User Requirements
 
-## User Story
+Solution must randomly generate a new password with each request.
+Clicking the main page button triggers series of interaction with user that validates requirements and enforces password policies.
+The criteria requires a minimum of 8 and maximum of 128 character password.
+User must select this password length compliance as a base requirement.
+There are 4 character types from where the user must select at least one.
+Generated password is pasted on the page.
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+## My Approach
 
-## Acceptance Criteria
+I sketched out a workflow for the different modules on a paper.
+This led me to one initiation, 5 prompts (with 5(or one) reference datab sources), one major decision logic with multiple conditions, the need for reusable randomizer function and a few error handling and page control functions.
+I also decided to add a few things to make the generator more user friendly and more interactive like pop up form, password copy clipboard, reset function, etc.
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+## Data Source
 
-The following image demonstrates the application functionality:
+I decided to use existing ASCII data source for ALL my characters. reading from this object and writing it to array looks like an an interesting challengeand offers me a real life learning path into array and array manipulation.
+I decided to use this opportunity to deepen my understanding of arrays and their manipulation.
+I decided to research better ways of achieving certain ideas.
+I decided to improve usability with the clipboard copy fuction.
+I estabished logging fuctions visibility into what the code is doing.
 
-![password generator demo](./Assets/03-javascript-homework-demo.png)
+## Implementation Approach
 
-## Review
+My implementation approach includes:
 
-You are required to submit the following for review:
+Core logic design and breakdown, with each module implemented individually and later linked together.
+Implementation of array based solution and using mostly array tools to manipulate data.
+I stumbled upon Fitcher-Yates randomizer. Once I have my data in an array, randomizing it is as simple as calling the FY randomizer and feeding my data into it.
+Using concat to combine and slice to truncate my arrays.
+using alert and posting to HTML to display results.
+Console Logging functions are still active but need to be called to validate each step.
 
-* The URL of the deployed application.
+## Other additions
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+I added a form that appears on click and disapears on reset button. This it to ensure better user experience.
+I added 2 bottons on the main page - one for password copy to clipboard and the other for password reset.
+I added a  form data to the HTML page for the pop up form. There is also an additional CSS styling for the reset button.
+These additional are to ease the user experience and does not fundamentally alter the requirements.
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+## Error Handling
+
+I used simple alert and if/else conditions to keep tight control of the flow.
+True condition is executed from the main function which called other functions.
+The pop up, close and reset buttons are all calling different functions based on the targeted eventListers.
+
+## Result Presentation
+
+Password is presented in the HTML Read ONLY page as well as on the alert page. 
+For ease of use, user can easily copy to cliboard.
+Any production level usage of this code may require automatic reset of password after generation just in case the user forgets. I did not have time to work on this but I hope to keep updating it as I learn more.
+
+To view the project, please see here:
+
+https://anyaegbufrancis.github.io/password.generator/
+
+## Major Challenges Faces
+
+I faced quite some challenges here:
+ Array data reading and combination.
+ Array data manipulation.
+ Reliable randomizer function (until I stumbled on the excellent work of Fitcher Yates).
+ JS scoping challenges in real life.
+ Functions design and reusability.
+
+
+
+## Summary
+
+With this code, I learned a lot about JS array and array data manipulation. I also learnt a few things about scoping of data and how to move my data between scopes. I found the use of reusable functions very useful. I also learn about a few existing methods like the array randomizer.
+
+With this password generator, each generated password is completely random. There are multiple levels of randomization functions that gets called once the call conditions are met. 
+
+I ensured that a user can generate up to 128 characters by selecting one option by ensuring that each option has about 130 characters completely randomized.
+
+I combined the initial randomized characters into an array to be fed into the final concat and randomization engine.
+
+I decided to randomize the password and slice it against the user selected password lenght, this ensures that password can come from anywhere from the chosen criteria that matches any combination of arrays at any point in time.
+
+
+
+
