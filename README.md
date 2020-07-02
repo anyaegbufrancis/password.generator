@@ -60,6 +60,8 @@ To view the project, please see here:
 
 https://anyaegbufrancis.github.io/password.generator/
 
+Your feedback will be appreciated.
+
 ## Major Challenges Faces
 
 I faced quite some challenges here:
